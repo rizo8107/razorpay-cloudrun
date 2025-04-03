@@ -3,8 +3,8 @@ const fetch = require("node-fetch");
 const app = express();
 app.use(express.json());
 
-const RAZORPAY_KEY_ID = 'rzp_live_3rZx2njbNwMEE1';
-const RAZORPAY_KEY_SECRET = 'XF5TUBWcXzu4K2h3T3jVGCVC';
+const RAZORPAY_KEY_ID = process.env.RAZORPAY_KEY_ID;
+const RAZORPAY_KEY_SECRET = process.env.RAZORPAY_KEY_SECRET;
 
 app.post("/", async (req, res) => {
   try {
@@ -34,4 +34,4 @@ app.post("/", async (req, res) => {
 });
 
 const port = process.env.PORT || 8080;
-app.listen(port, () => console.log(`Listening on port ${port}`));
+app.listen(port, () => console.log(`Server running on port ${port}`));
